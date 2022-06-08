@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('seller_id')->constrained();
+            $table->decimal('total')->default(0);
+            $table->decimal('commission')->default(0);
             $table->timestamps();
         });
     }
