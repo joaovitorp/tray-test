@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('seller_id')->constrained();
             $table->decimal('total')->default(0);
             $table->decimal('commission')->default(0);
+            $table->timestamp('date_sale');
             $table->timestamps();
         });
     }
