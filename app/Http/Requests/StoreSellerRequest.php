@@ -24,7 +24,7 @@ class StoreSellerRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string',
+            'name' => 'required|string|min:3',
             'email' => 'required|email|unique:sellers,email'
         ];
     }
