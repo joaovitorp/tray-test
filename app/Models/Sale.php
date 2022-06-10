@@ -13,7 +13,6 @@ class Sale extends Model
         'seller_id',
         'total',
         'commission',
-        'date_sale'
     ];
 
     protected $casts = [

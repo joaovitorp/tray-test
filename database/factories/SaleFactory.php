@@ -20,7 +20,6 @@ class SaleFactory extends Factory
         return [
             'total' => $this->faker->numberBetween(0, 20000),
             'commission' => $this->faker->numberBetween(0, 20000),
-            'date_sale' => now()
         ];
     }
 }

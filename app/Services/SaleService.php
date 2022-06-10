@@ -30,7 +30,6 @@ class SaleService
             'commission' => $totalCommission,
             'total' => $salePayload['total'],
             'seller_id' => $salePayload['seller_id'],
-            'date_sale' => now()
         ]);
     }
 }
