@@ -15,4 +15,14 @@ class Sale extends Model
         'commission',
         'date_sale'
     ];
+
+    protected $casts = [
+        "commission" => 'float',
+        'total' => 'float'
+    ];
+
+    public function seller()
+    {
+        return $this->belongsTo(Seller::class);
+    }
 }
