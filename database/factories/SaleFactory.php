@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Seller;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,10 @@ class SaleFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'seller_id' => Seller::factory()->create(),
+            'total' => $this->faker->randomNumber(),
+            'commission' => $this->faker->randomNumber(),
+            'date_sale' => now()
         ];
     }
 }
