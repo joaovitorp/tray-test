@@ -15,6 +15,5 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::apiResource('sellers', SellerController::class)->except('destroy');
-Route::post('sellers/{seller_id}/sales', [SaleController::class, 'store']);
+Route::apiResource('sellers', SellerController::class)->only('store', 'index');
+Route::apiResource('sellers.sales', SaleController::class)->only('store', 'index');

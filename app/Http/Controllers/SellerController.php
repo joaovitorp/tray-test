@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreSellerRequest;
 use App\Repositories\Contracts\SellerRepositoryInterface;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-
 class SellerController extends Controller
 {
 
@@ -21,8 +20,8 @@ class SellerController extends Controller
         return response()->json($this->sellerRepository->getAllSellers());
     }
 
-    public function store(Request $request)
+    public function store(StoreSellerRequest $request)
     {
-        return response()->json($this->sellerRepository->createSeller($request->all()), 201);
+        return response()->json($this->sellerRepository->createSeller($request->validated()), 201);
     }
 }
