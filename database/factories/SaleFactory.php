@@ -18,9 +18,8 @@ class SaleFactory extends Factory
     public function definition()
     {
         return [
-            'seller_id' => Seller::factory()->create(),
-            'total' => $this->faker->randomNumber(),
-            'commission' => $this->faker->randomNumber(),
+            'total' => $this->faker->numberBetween(0, 20000),
+            'commission' => $this->faker->numberBetween(0, 20000),
             'date_sale' => now()
         ];
     }

@@ -4,7 +4,6 @@ namespace App\Repositories\Eloquent;
 
 use App\Models\Seller;
 use App\Repositories\Contracts\SellerRepositoryInterface;
-use Illuminate\Support\Collection;
 
 class SellerRepository implements SellerRepositoryInterface
 {
@@ -15,16 +14,13 @@ class SellerRepository implements SellerRepositoryInterface
         $this->sellerModel = $sellerModel;
     }
 
-    public function getAllSellers()
+    public function getAllSellers(): array
     {
-        return $this->sellerModel->get();
+        return $this->sellerModel->withSum('sales', 'commission')->get()->toArray();
     }
 
-    public function createSeller(string $name, string $email) : Collection
+    public function createSeller(array $data): array
     {
-        return $this->sellerModel->create([
-            "name" => $name,
-            "email" => $email
-        ]);
+        return $this->sellerModel->create($data)->toArray();
     }
 }
