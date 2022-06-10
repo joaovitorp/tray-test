@@ -6,6 +6,7 @@ use App\Http\Resources\SellerCollection;
 use App\Http\Resources\SellerResource;
 use App\Models\Seller;
 use App\Repositories\Contracts\SellerRepositoryInterface;
+use Illuminate\Support\Collection;
 
 class SellerRepository implements SellerRepositoryInterface
 {
@@ -24,5 +25,14 @@ class SellerRepository implements SellerRepositoryInterface
     public function createSeller(array $data): SellerResource
     {
         return new SellerResource($this->sellerModel->create($data));
+    }
+
+    public function getAllSellersAndSumSalesTotal(): Collection
+    {
+        return $this->sellerModel->selectRaw('sellers.*, SUM(sales.total) as total_sales')
+            ->join('sales', 'sellers.id', '=', 'sales.seller_id')
+            ->whereDate('sales.created_at', now()->today())
+            ->groupBy('sales.seller_id')
+            ->get();
     }
 }
