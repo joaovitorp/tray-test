@@ -2,6 +2,8 @@
 
 namespace App\Repositories\Eloquent;
 
+use App\Http\Resources\SellerCollection;
+use App\Http\Resources\SellerResource;
 use App\Models\Seller;
 use App\Repositories\Contracts\SellerRepositoryInterface;
 
@@ -14,13 +16,13 @@ class SellerRepository implements SellerRepositoryInterface
         $this->sellerModel = $sellerModel;
     }
 
-    public function getAllSellers(): array
+    public function getAllSellers(): SellerCollection
     {
-        return $this->sellerModel->withSum('sales', 'commission')->get()->toArray();
+        return new SellerCollection($this->sellerModel->withSum('sales as total_commission', 'commission')->get());
     }
 
-    public function createSeller(array $data): array
+    public function createSeller(array $data): SellerResource
     {
-        return $this->sellerModel->create($data)->toArray();
+        return new SellerResource($this->sellerModel->create($data));
     }
 }

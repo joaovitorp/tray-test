@@ -14,6 +14,11 @@ class SellerResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'email' => $this->email,
+            'total_commission' => (float) $this->commission_total ?? 0
+        ];
     }
 }
