@@ -2,18 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\Contracts\SellerRepositoryInterface;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class SellerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    protected $sellerRepository;
+
+    public function __construct(SellerRepositoryInterface $sellerRepository)
     {
-        //
+        $this->sellerRepository = $sellerRepository;
+    }
+
+    public function index(): JsonResponse
+    {
+        return response()->json($this->sellerRepository->getAllSellers());
     }
 
     /**
