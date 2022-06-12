@@ -3,8 +3,8 @@
 namespace App\Console\Commands;
 
 use App\Mail\SaleReportEmail;
-use App\Repositories\Contracts\SaleRepositoryInterface;
 use App\Repositories\Contracts\SellerRepositoryInterface;
+use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
 
@@ -36,8 +36,14 @@ class EmailSalesReportSellerCommand extends Command
      */
     public function handle()
     {
-        $this->sellerRepository->getAllSellersAndSumSalesTotal()->map(function($sellerSales) {
-            Mail::to($sellerSales['email'])->send( new SaleReportEmail($sellerSales->toArray()));
-        });
+        try {
+            $this->sellerRepository->getAllSellersAndSumSalesTotal()->map(function ($sellerSales) {
+                Mail::to($sellerSales['email'])->send(new SaleReportEmail($sellerSales->toArray()));
+            });
+            $this->info('Sales report sent successfully');
+            return 1;
+        } catch (Exception $exception) {
+            $this->error($exception->getMessage());
+        }
     }
 }
