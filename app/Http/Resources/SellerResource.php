@@ -18,7 +18,7 @@ class SellerResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
-            'total_commission' => (float) $this->commission_total ?? 0
+            'total_commission' => (float) $this->total_commission ?? 0
         ];
     }
 }
