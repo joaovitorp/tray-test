@@ -9,7 +9,6 @@ use App\Repositories\Contracts\SaleRepositoryInterface;
 
 class SaleRepository implements SaleRepositoryInterface
 {
-
     public function __construct(Sale $sale)
     {
         $this->saleModel = $sale;

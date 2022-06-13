@@ -8,5 +8,5 @@ use App\Http\Resources\SaleCollection;
 interface SaleRepositoryInterface
 {
     public function saveSellerSale(array $data): SaleResource;
-    public function getAllSalesBySellerId(int $sellerId) : SaleCollection;
+    public function getAllSalesBySellerId(int $sellerId): SaleCollection;
 }

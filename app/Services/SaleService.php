@@ -16,12 +16,12 @@ class SaleService
         $this->saleRepository = $saleRepository;
     }
 
-    public function showSalesBySellerId(int $sellerId) : SaleCollection
+    public function showSalesBySellerId(int $sellerId): SaleCollection
     {
         return $this->saleRepository->getAllSalesBySellerId($sellerId);
     }
 
-    public function launchNewSaleToSeller(array $salePayload) : SaleResource
+    public function launchNewSaleToSeller(array $salePayload): SaleResource
     {
         $commissionFactory = new CommissionFactory();
         $totalCommission = $commissionFactory->getCommision('percentage')->calculate($salePayload['total']);

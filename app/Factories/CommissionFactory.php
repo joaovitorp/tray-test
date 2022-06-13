@@ -15,7 +15,7 @@ class CommissionFactory
     public function getCommision(string $typeCommissionStrategy): CommissionInterface
     {
         if (array_key_exists($typeCommissionStrategy, $this->strategies)) {
-            return new $this->strategies[$typeCommissionStrategy];
+            return new $this->strategies[$typeCommissionStrategy]();
         }
 
         throw new Exception('Commission Strategy not found');

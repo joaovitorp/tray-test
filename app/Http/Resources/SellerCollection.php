@@ -14,6 +14,6 @@ class SellerCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return $this->collection->map(fn($item) => new SellerResource($item));
+        return $this->collection->map(fn ($item) => new SellerResource($item));
     }
 }

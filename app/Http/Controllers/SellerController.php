@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreSellerRequest;
 use App\Repositories\Contracts\SellerRepositoryInterface;
 use Illuminate\Http\JsonResponse;
+
 class SellerController extends Controller
 {
-
     protected $sellerRepository;
 
     public function __construct(SellerRepositoryInterface $sellerRepository)
