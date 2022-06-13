@@ -25,7 +25,7 @@ docker run --rm \
 ```
 #### Subindo aplicação 
 ```
-./vendor/bin/sail up -d && ./vendor/bin/sail artisan migrate
+./vendor/bin/sail up -d && ./vendor/bin/sail artisan migrate --seed
 ```
 
 #### Rodando os tests

@@ -8,7 +8,6 @@ use App\Repositories\Contracts\CommissionTypeRepositoryInterface;
 
 class CommissionTypeRepository implements CommissionTypeRepositoryInterface
 {
-
     protected $commissionTypeModel;
 
     public function __construct(CommissionType $commissionTypeModel)
