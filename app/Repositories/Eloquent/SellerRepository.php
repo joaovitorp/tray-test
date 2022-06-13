@@ -10,9 +10,7 @@ use Illuminate\Support\Collection;
 
 class SellerRepository implements SellerRepositoryInterface
 {
-    protected $sellerModel;
-
-    public function __construct(Seller $sellerModel)
+    public function __construct(protected Seller $sellerModel)
     {
         $this->sellerModel = $sellerModel;
     }

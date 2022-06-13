@@ -9,9 +9,8 @@ use App\Repositories\Contracts\SaleRepositoryInterface;
 
 class SaleRepository implements SaleRepositoryInterface
 {
-    public function __construct(Sale $sale)
+    public function __construct(protected Sale $saleModel)
     {
-        $this->saleModel = $sale;
     }
 
     public function saveSellerSale(array $data): SaleResource

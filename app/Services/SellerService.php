@@ -7,15 +7,10 @@ use App\Repositories\Contracts\SellerRepositoryInterface;
 
 class SellerService
 {
-    protected $sellerRepository;
-    protected $commissionTypeRepository;
-
     public function __construct(
-        SellerRepositoryInterface $sellerRepository,
-        CommissionTypeRepositoryInterface $commissionTypeRepository
+        protected SellerRepositoryInterface $sellerRepository,
+        protected CommissionTypeRepositoryInterface $commissionTypeRepository
     ) {
-        $this->sellerRepository = $sellerRepository;
-        $this->commissionTypeRepository = $commissionTypeRepository;
     }
 
     public function index()

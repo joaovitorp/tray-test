@@ -10,15 +10,10 @@ use App\Repositories\Contracts\SellerRepositoryInterface;
 
 class SaleService
 {
-    protected SaleRepositoryInterface $saleRepository;
-    protected SellerRepositoryInterface $sellerRepository;
-
     public function __construct(
-        SaleRepositoryInterface $saleRepository,
-        SellerRepositoryInterface $sellerRepository
+        protected SaleRepositoryInterface $saleRepository,
+        protected SellerRepositoryInterface $sellerRepository
     ) {
-        $this->saleRepository = $saleRepository;
-        $this->sellerRepository = $sellerRepository;
     }
 
     private function calculateCommissionByPercentage(float $total, float $percentage): float

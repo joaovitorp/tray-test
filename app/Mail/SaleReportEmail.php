@@ -12,15 +12,13 @@ class SaleReportEmail extends Mailable
     use Queueable;
     use SerializesModels;
 
-    public array $sellerWithSales = [];
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(array $sellerWithSales)
+    public function __construct(public array $sellerWithSales)
     {
-        $this->sellerWithSales = $sellerWithSales;
     }
 
     /**

@@ -16,7 +16,6 @@ class EmailSalesReportSellerCommand extends Command
      * @var string
      */
     protected $signature = 'seller:emailSalesReport';
-    protected $sellerRepository;
     /**
      * The console command description.
      *
@@ -24,9 +23,8 @@ class EmailSalesReportSellerCommand extends Command
      */
     protected $description = 'Send report sales to sellers e-mail';
 
-    public function __construct(SellerRepositoryInterface $sellerRepository)
+    public function __construct(protected SellerRepositoryInterface $sellerRepository)
     {
-        $this->sellerRepository = $sellerRepository;
         parent::__construct();
     }
     /**

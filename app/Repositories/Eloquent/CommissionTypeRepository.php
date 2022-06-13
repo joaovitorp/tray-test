@@ -8,11 +8,8 @@ use App\Repositories\Contracts\CommissionTypeRepositoryInterface;
 
 class CommissionTypeRepository implements CommissionTypeRepositoryInterface
 {
-    protected $commissionTypeModel;
-
-    public function __construct(CommissionType $commissionTypeModel)
+    public function __construct(protected CommissionType $commissionTypeModel)
     {
-        $this->commissionTypeModel = $commissionTypeModel;
     }
 
     public function create(string $name, float $percentage, bool $default): CommissionTypeResource

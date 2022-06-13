@@ -9,11 +9,8 @@ use Illuminate\Http\JsonResponse;
 
 class SellerController extends Controller
 {
-    protected $sellerService;
-
-    public function __construct(SellerService $sellerService)
+    public function __construct(protected SellerService $sellerService)
     {
-        $this->sellerService = $sellerService;
     }
 
     public function index(): JsonResponse

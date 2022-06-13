@@ -9,11 +9,8 @@ use Illuminate\Http\Request;
 
 class SaleController extends Controller
 {
-    protected $saleService;
-
-    public function __construct(SaleService $saleService)
+    public function __construct(protected SaleService $saleService)
     {
-        $this->saleService = $saleService;
     }
 
     public function index(ShowSalesRequest $request)
