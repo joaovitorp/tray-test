@@ -32,6 +32,6 @@ class SaleReportEmail extends Mailable
     {
         return $this->markdown('mail.sale-report-email', [
             'sellerWithSales' => $this->sellerWithSales
-        ]);
+        ])->subject('Relatório diário');
     }
 }
