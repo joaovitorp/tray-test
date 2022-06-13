@@ -44,6 +44,7 @@ class EmailSalesReportSellerCommand extends Command
             return 1;
         } catch (Exception $exception) {
             $this->error($exception->getMessage());
+            return 0;
         }
     }
 }
