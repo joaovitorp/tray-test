@@ -19,7 +19,7 @@ class SellerRepository implements SellerRepositoryInterface
 
     public function getAllSellers(): SellerCollection
     {
-        return new SellerCollection($this->sellerModel->withSum('sales as total_commission', 'commission')->get());
+        return new SellerCollection($this->sellerModel->with('commissionType:id,name,value')->get());
     }
 
     public function createSeller(array $data): SellerResource
@@ -34,5 +34,13 @@ class SellerRepository implements SellerRepositoryInterface
             ->whereDate('sales.created_at', now()->today())
             ->groupBy('sales.seller_id')
             ->get();
+    }
+
+    public function findCommissionTypePercentageSellerId(int $sellerId): float
+    {
+        return $this->sellerModel->selectRaw('commission_types.value')
+        ->join('commission_types', 'sellers.commission_type_id', '=', 'commission_types.id')
+        ->first()
+        ->value;
     }
 }

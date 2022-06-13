@@ -11,11 +11,17 @@ class Seller extends Model
 
     protected $fillable = [
         'name',
-        'email'
+        'email',
+        'commission_type_id'
     ];
 
     public function sales()
     {
         return $this->hasMany(Sale::class);
+    }
+
+    public function commissionType()
+    {
+        return $this->belongsTo(CommissionType::class);
     }
 }

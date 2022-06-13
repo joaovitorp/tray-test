@@ -7,8 +7,6 @@ use App\Models\Sale;
 use App\Models\Seller;
 use App\Mail\SaleReportEmail;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class EmailSalesReportSellerCommandTest extends TestCase
 {

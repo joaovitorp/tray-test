@@ -6,7 +6,6 @@ use Tests\TestCase;
 use App\Models\Sale;
 use App\Models\Seller;
 use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class SaleControllerTest extends TestCase
 {

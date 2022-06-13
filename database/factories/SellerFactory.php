@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Repositories\Contracts\CommissionTypeRepositoryInterface;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Seller>
@@ -18,7 +19,8 @@ class SellerFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'email' => $this->faker->email()
+            'email' => $this->faker->email(),
+            'commission_type_id' => app(CommissionTypeRepositoryInterface::class)->findCommissionDefaultId()
         ];
     }
 }

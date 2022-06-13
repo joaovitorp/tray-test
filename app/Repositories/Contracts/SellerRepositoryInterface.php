@@ -11,4 +11,5 @@ interface SellerRepositoryInterface
     public function getAllSellers(): SellerCollection;
     public function createSeller(array $data): SellerResource;
     public function getAllSellersAndSumSalesTotal(): Collection;
+    public function findCommissionTypePercentageSellerId(int $sellerId): float;
 }

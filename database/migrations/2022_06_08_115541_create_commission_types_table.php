@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sellers', function (Blueprint $table) {
+        Schema::create('commission_types', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
-            $table->foreignId('commission_type_id')->constrained();
+            $table->decimal('value')->default(0);
+            $table->boolean('default')->default(false);
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sellers');
+        Schema::dropIfExists('commission_types');
     }
 };

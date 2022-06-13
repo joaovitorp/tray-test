@@ -34,7 +34,7 @@ class SellerControllerTest extends TestCase
                 'id',
                 'name',
                 'email',
-                'total_commission'
+                'commission'
             ]);
 
         $this->assertDatabaseHas('sellers', $sellerPayload);

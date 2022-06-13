@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SellerResource extends JsonResource
+class CommissionTypeResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,11 +14,6 @@ class SellerResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'email' => $this->email,
-            'commission' => (float) $this->commissionType->value ?? 0
-        ];
+        return parent::toArray($request);
     }
 }

@@ -1,5 +1,5 @@
 @component('mail::message')
-# Relatório de vendas
+# Relatório diário
 
 Olá {{ $sellerWithSales['name'] }} <br>
 
